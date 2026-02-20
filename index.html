@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Heiyey Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+font-family: Arial;
+background: linear-gradient(#4db8ff,#ffffff);
+text-align:center;
+}
+.box{
+background:white;
+margin:20px;
+padding:20px;
+border-radius:15px;
+box-shadow:0 0 10px gray;
+}
+button{
+background:#4db8ff;
+color:white;
+border:none;
+padding:12px;
+border-radius:10px;
+font-size:16px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🛒 Heiyey Store</h1>
+
+<div class="box">
+<h2>Pilih Produk</h2>
+
+<select id="produk">
+<option>Gamepass Premium Brookhaven — 50k</option>
+<option>VIP Brookhaven — 140k</option>
+<option>Speed Brookhaven — 30k</option>
+
+<option>Darkbringer MM2 — 20k</option>
+<option>Lightbringer MM2 — 40k</option>
+
+<option>Astral STK — 8k</option>
+<option>Bunnybane STK — 8k</option>
+<option>Noctis AEterna STK — 95k</option>
+
+<option>100 Robux — 15k</option>
+<option>500 Robux — 75k</option>
+<option>1000 Robux — 150k</option>
+</select>
+</div>
+
+<div class="box">
+<h2>Metode Pembayaran</h2>
+
+<select id="bayar" onchange="cekBayar()">
+<option>QRIS</option>
+<option>DANA</option>
+<option>BCA</option>
+<option>BRI</option>
+<option>Mandiri</option>
+</select>
+
+<div id="qris" style="display:none;">
+<h3>Scan QRIS</h3>
+<img src="https://i.imgur.com/kptoDOK.png" width="200">
+<p>Biaya admin: Rp1.200</p>
+</div>
+
+</div>
+
+<div class="box">
+<h2>Username Roblox</h2>
+<input id="user" placeholder="Username kamu">
+</div>
+
+<div class="box">
+<button onclick="order()">Kirim Order</button>
+</div>
+
+<script>
+function cekBayar(){
+var metode = document.getElementById("bayar").value;
+if(metode=="QRIS"){
+document.getElementById("qris").style.display="block";
+}else{
+document.getElementById("qris").style.display="none";
+}
+}
+
+function order(){
+var produk = document.getElementById("produk").value;
+var bayar = document.getElementById("bayar").value;
+var user = document.getElementById("user").value;
+
+var pesan = "Halo Heiyey Store%0A"+
+"Order:%20"+produk+"%0A"+
+"Username:%20"+user+"%0A"+
+"Pembayaran:%20"+bayar;
+
+window.open("https://wa.me/6287897493566?text="+pesan);
+}
+</script>
+
+</body>
+</html>
